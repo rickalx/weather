@@ -3,9 +3,9 @@ var Ciudad = {};
 var ciudades = {};
 var text = "";
 let loadDayForecastData = (b) => {
-    console.log("desde loadDayForecastData")
-    console.log(b)
-    let {
+  console.log("desde loadDayForecastData");
+  console.log(b);
+  let {
     city,
     date,
     mintemperature,
@@ -46,8 +46,7 @@ let loadDayForecastData = (b) => {
 
   //forecast_today tarde
 
-  var { lapse, text, temperature, forecast, icon } =
-    b.forecast_today[0];
+  var { lapse, text, temperature, forecast, icon } = b.forecast_today[0];
 
   let guayaquilmsg8 = `<i id="late_icon" class="material-icons opacity-10">${icon}</i>`;
   let lateIcon = document.getElementById("late_icon");
@@ -67,8 +66,7 @@ let loadDayForecastData = (b) => {
 
   //forecast_today noche
 
-  var { lapse, text, temperature, forecast, icon } =
-    b.forecast_today[1];
+  var { lapse, text, temperature, forecast, icon } = b.forecast_today[1];
 
   let guayaquilmsg12 = `<i id="late_icon" class="material-icons opacity-10">${icon}</i>`;
   let nightIcon = document.getElementById("night_icon");
@@ -128,7 +126,7 @@ addEventListener("DOMContentLoaded", (event) => {
   var seleccionado = document.getElementById("dropdownMenuButton");
   function onChange() {
     text = seleccionado.options[seleccionado.selectedIndex].text;
-    
+
     loadDayForecastData(ciudades[text]);
   }
   seleccionado.onchange = onChange;
@@ -138,6 +136,5 @@ addEventListener("DOMContentLoaded", (event) => {
   btnCargar.addEventListener("click", (e) => {
     console.log("boton cargar ");
     loadWeekForecastData(ciudades[text]);
-
   });
 });
